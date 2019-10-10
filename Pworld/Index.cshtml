@@ -1,0 +1,36 @@
+﻿@page
+@model Pet_World.Pages.Pworld.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PetStores[0].PRate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PetStores) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
